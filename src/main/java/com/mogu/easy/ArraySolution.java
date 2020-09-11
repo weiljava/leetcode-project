@@ -1,5 +1,7 @@
 package com.mogu.easy;
 
+import com.mogu.util.ArrayUtils;
+
 /**
  * Created with IntelliJ IDEA.
  * User: dinghw
@@ -18,7 +20,22 @@ public class ArraySolution {
      * @return
      */
     public int removeDuplicates(int[] nums) {
+        int n = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
+                swap(nums, i + 1);
+                n++;
+            }
+        }
+        ArrayUtils.printArray(nums);
+        return nums.length - n;
+    }
 
-        return 0;
+    private void swap(int[] nums, int k) {
+        for (int j = k; j < nums.length - 1; j++) {
+            int temp = nums[j];
+            nums[j] = nums[j + 1];
+            nums[j + 1] = temp;
+        }
     }
 }
