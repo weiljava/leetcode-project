@@ -20,15 +20,16 @@ public class ArraySolution {
      * @return
      */
     public int removeDuplicates(int[] nums) {
-        int n = 0;
+        int j = 0;
         for (int i = 0; i < nums.length; i++) {
-            ArrayUtils.printArray(nums);
-            if (nums[i] != nums[n]) {
-                n++;
-                nums[n] = nums[i];
+            System.out.print("i=" + i + ",j=" + j + "=======");
+            if (nums[i] != nums[j]) {
+                j++;
+                nums[j] = nums[i];
             }
+            ArrayUtils.printArray(nums);
         }
         ArrayUtils.printArray(nums);
-        return n + 1;
+        return j + 1;
     }
 }
