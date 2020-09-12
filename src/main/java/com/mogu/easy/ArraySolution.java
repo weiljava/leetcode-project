@@ -2,6 +2,8 @@ package com.mogu.easy;
 
 import com.mogu.util.ArrayUtils;
 
+import java.util.HashSet;
+
 /**
  * Created with IntelliJ IDEA.
  * User: dinghw
@@ -63,13 +65,12 @@ public class ArraySolution {
      * @return
      */
     public boolean containsDuplicate(int[] nums) {
+        HashSet set = new HashSet(nums.length);
         for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                if (i != j) {
-                    if (nums[i] == nums[j]) {
-                        return true;
-                    }
-                }
+            if (set.contains(nums[i])) {
+                return true;
+            } else {
+                set.add(nums[i]);
             }
         }
         return false;
