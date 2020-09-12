@@ -28,7 +28,7 @@ class ArraySolutionTest {
 
     @Test
     void removeDuplicates() {
-        int[] nums = SortUtils.bubbleSort(RandomUtils.randomIntArray(10, 10));
+        int[] nums = SortUtils.bubbleSort(RandomUtils.randomIntArray(10, 5));
         ArrayUtils.printArray(nums);
         int a = test.removeDuplicates(nums);
         System.out.println(a);

@@ -21,21 +21,14 @@ public class ArraySolution {
      */
     public int removeDuplicates(int[] nums) {
         int n = 0;
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] == nums[i + 1]) {
-                swap(nums, i + 1);
+        for (int i = 0; i < nums.length; i++) {
+            ArrayUtils.printArray(nums);
+            if (nums[i] != nums[n]) {
                 n++;
+                nums[n] = nums[i];
             }
         }
         ArrayUtils.printArray(nums);
-        return nums.length - n;
-    }
-
-    private void swap(int[] nums, int k) {
-        for (int j = k; j < nums.length - 1; j++) {
-            int temp = nums[j];
-            nums[j] = nums[j + 1];
-            nums[j + 1] = temp;
-        }
+        return n + 1;
     }
 }
