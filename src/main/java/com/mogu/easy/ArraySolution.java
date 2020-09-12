@@ -32,4 +32,25 @@ public class ArraySolution {
         ArrayUtils.printArray(nums);
         return j + 1;
     }
+
+
+    /**
+     * 旋转数组
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2skh7/
+     *
+     * @param nums
+     * @param k
+     */
+    public void rotate(int[] nums, int k) {
+        int length = nums.length;
+        while (k > 0) {
+            int temp = nums[length - 1];
+            for (int i = length - 1; i > 0; i--) {
+                nums[i] = nums[i - 1];
+            }
+            nums[0] = temp;
+            ArrayUtils.printArray(nums);
+            k--;
+        }
+    }
 }
