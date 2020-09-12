@@ -43,6 +43,13 @@ class ArraySolutionTest {
         System.out.println("==========");
         int[] nums2 = {-1, -100, 3, 99};
         ArrayUtils.printArray(nums2);
-        test.rotate(nums2 , 2);
+        test.rotate(nums2, 2);
+    }
+
+    @Test
+    void containsDuplicate() {
+        int[] nums = {1, 3, 4, 2};
+        boolean b = test.containsDuplicate(nums);
+        System.out.println(b);
     }
 }

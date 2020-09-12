@@ -53,4 +53,25 @@ public class ArraySolution {
             k--;
         }
     }
+
+
+    /**
+     * 存在重复元素
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x248f5/
+     *
+     * @param nums
+     * @return
+     */
+    public boolean containsDuplicate(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                if (i != j) {
+                    if (nums[i] == nums[j]) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
