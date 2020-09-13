@@ -2,7 +2,9 @@ package com.mogu.easy;
 
 import com.mogu.util.ArrayUtils;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -74,5 +76,30 @@ public class ArraySolution {
             }
         }
         return false;
+    }
+
+
+    /**
+     * 只出现一次的数字
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x21ib6/
+     *
+     * @param nums
+     * @return
+     */
+    public int singleNumber(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.keySet().contains(nums[i])) {
+                map.put(nums[i], map.get(nums[i]) + 1);
+            } else {
+                map.put(nums[i], 1);
+            }
+        }
+        for (Map.Entry<Integer, Integer> e : map.entrySet()) {
+            if (e.getValue() == 1) {
+                return e.getKey();
+            }
+        }
+        return -1;
     }
 }

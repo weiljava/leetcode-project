@@ -52,4 +52,11 @@ class ArraySolutionTest {
         boolean b = test.containsDuplicate(nums);
         System.out.println(b);
     }
+
+    @Test
+    void singleNumber() {
+        int[] nums = {4, 1, 2, 1, 2};
+        int a = test.singleNumber(nums);
+        System.out.println(a);
+    }
 }
