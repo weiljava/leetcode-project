@@ -19,44 +19,112 @@ public class ArraySolution {
     /**
      * 删除排序数组中的重复项
      * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2gy9m/
-     * 思路;将相同的数据移动到最后,因为是按小到大,当前面的大于后面的时候结束
      *
      * @param nums
      * @return
      */
     public int removeDuplicates(int[] nums) {
-        int i = 0;
-        if (nums.length > 0) {
-            //防止数据全部一致死循环
-            if (nums[0] == nums[nums.length - 1]) {
-                return 1;
-            }
-            for (i = 0; i < nums.length; i++) {
-                for (int j = i + 1; j < nums.length; j++) {
-                    System.out.println("i=" + i + ",j=" + j + "=======");
-                    //数据一致将数据移动到最后
-                    if (nums[i] == nums[j]) {
-                        int temp = nums[j];
-                        for (int k = j + 1; k < nums.length; k++) {
-                            nums[k - 1] = nums[k];
-                        }
-                        nums[nums.length - 1] = temp;
-                        //抵消掉移动到最后一位的影响
-                        j--;
-                    } else if (nums[i] > nums[j]) {
-                        return i + 1;
-                    } else {
-                        break;
-                    }
-                    ArrayUtils.printArray(nums);
-                }
+        int j = 0;
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print("i=" + i + ",j=" + j + "=======");
+            if (nums[i] != nums[j]) {
+                j++;
+                nums[j] = nums[i];
             }
             ArrayUtils.printArray(nums);
-        } else {
-            return -1;
         }
-        return i + 1;
+        ArrayUtils.printArray(nums);
+        return j + 1;
     }
 
+    /**
+     * 旋转数组
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2skh7/
+     *
+     * @param nums
+     * @param k
+     */
+    public void rotate(int[] nums, int k) {
+        int length = nums.length;
+        while (k > 0) {
+            int temp = nums[length - 1];
+            for (int i = length - 1; i > 0; i--) {
+                nums[i] = nums[i - 1];
+            }
+            nums[0] = temp;
+            ArrayUtils.printArray(nums);
+            k--;
+        }
+    }
 
+    /**
+     * 存在重复元素
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x248f5/
+     *
+     * @param nums
+     * @return
+     */
+    public boolean containsDuplicate(int[] nums) {
+        HashSet set = new HashSet(nums.length);
+        for (int i = 0; i < nums.length; i++) {
+            if (set.contains(nums[i])) {
+                return true;
+            } else {
+                set.add(nums[i]);
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 只出现一次的数字
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x21ib6/
+     *
+     * @param nums
+     * @return
+     */
+    public int singleNumber(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.keySet().contains(nums[i])) {
+                map.put(nums[i], map.get(nums[i]) + 1);
+            } else {
+                map.put(nums[i], 1);
+            }
+        }
+        for (Map.Entry<Integer, Integer> e : map.entrySet()) {
+            if (e.getValue() == 1) {
+                return e.getKey();
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 两个数组的交集 II
+     * https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+     *
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int[] intersect(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums1.length; i++) {
+            for (int j = 0; j < nums2.length; j++) {
+                if (nums1[i] == nums2[j] && !map.containsKey(i) && !map.containsValue(j)) {
+                    map.put(i, j);
+                    break;
+                }
+            }
+        }
+        System.out.println(map.toString());
+        int[] a = new int[map.size()];
+        int k = 0;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            a[k] = nums1[entry.getKey()];
+            k++;
+        }
+        return a;
+    }
 }
