@@ -77,4 +77,22 @@ class ArraySolutionTest {
         int[] a3 = test.intersect(nums5, nums6);
         ArrayUtils.printArray(a3);
     }
+
+    @Test
+    void intersect2() {
+        int[] nums1 = { 4, 9, 5 };
+        int[] nums2 = { 9, 4, 9, 8, 4 };
+        int[] a = test.intersect2(nums1, nums2);
+        ArrayUtils.printArray(a);
+
+        int[] nums3 = { 1, 2, 2, 1 };
+        int[] nums4 = { 2, 2 };
+
+        int[] a2 = test.intersect2(nums3, nums4);
+        ArrayUtils.printArray(a2);
+        int[] nums5 = { 1, 2, 2, 1 };
+        int[] nums6 = { 2 };
+        int[] a3 = test.intersect2(nums5, nums6);
+        ArrayUtils.printArray(a3);
+    }
 }

@@ -2,6 +2,7 @@ package com.mogu.easy;
 
 import com.mogu.util.ArrayUtils;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -126,5 +127,31 @@ public class ArraySolution {
             k++;
         }
         return a;
+    }
+
+    /**
+     * 两个数组的交集 II
+     * https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+     *
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int[] intersect2(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int length = nums1.length > nums2.length ? nums2.length : nums1.length;
+        int[] a = new int[length];
+        int index = 0;
+        for (int i = 0; i < nums1.length; i++) {
+            for (int j = 0; j < nums2.length; j++) {
+                if (nums1[i] == nums2[j] && !map.containsKey(i) && !map.containsValue(j)) {
+                    map.put(i, j);
+                    a[index] = nums1[i];
+                    index++;
+                    break;
+                }
+            }
+        }
+        return Arrays.copyOfRange(a, 0, index);
     }
 }
