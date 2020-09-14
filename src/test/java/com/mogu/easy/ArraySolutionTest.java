@@ -4,6 +4,7 @@ import com.mogu.util.ArrayUtils;
 import com.mogu.util.RandomUtils;
 import com.mogu.util.SortUtils;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -94,5 +95,23 @@ class ArraySolutionTest {
         int[] nums6 = { 2 };
         int[] a3 = test.intersect2(nums5, nums6);
         ArrayUtils.printArray(a3);
+    }
+
+    @Test
+    void plusOne() {
+        int[] nums = { 4, 9, 5 };
+        int[] a = test.plusOne(nums);
+        ArrayUtils.printArray(a);
+        Assertions.assertArrayEquals(a, new int[] { 4, 9, 6 });
+
+        int[] nums2 = { 4, 9, 9 };
+        int[] a2 = test.plusOne(nums2);
+        ArrayUtils.printArray(a2);
+        Assertions.assertArrayEquals(a2, new int[] { 5, 0, 0 });
+
+        int[] nums3 = { 9 };
+        int[] a3 = test.plusOne(nums3);
+        ArrayUtils.printArray(a3);
+        Assertions.assertArrayEquals(a3, new int[] { 1, 0 });
     }
 }
