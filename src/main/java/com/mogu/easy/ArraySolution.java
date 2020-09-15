@@ -214,4 +214,24 @@ public class ArraySolution {
         }
     }
 
+    /**
+     * 两数之和
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2jrse/
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
+                return new int[] { map.get(nums[i]), i };
+            } else {
+                map.put(target - nums[i], i);
+            }
+        }
+        return new int[0];
+    }
+
 }

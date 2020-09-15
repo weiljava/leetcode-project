@@ -152,4 +152,17 @@ class ArraySolutionTest {
         ArrayUtils.printArray(nums7);
         Assertions.assertArrayEquals(nums7, new int[] { 1, 0, 0 });
     }
+
+    @Test
+    void twoSum() {
+        int[] nums = { 2, 7, 11, 15 };
+        int[] a = test.twoSum(nums, 9);
+        ArrayUtils.printArray(a);
+        Assertions.assertArrayEquals(a, new int[] { 0, 1 });
+
+        int[] nums2 = { 2, 7, 2, 15 };
+        int[] a2 = test.twoSum(nums2, 4);
+        ArrayUtils.printArray(a2);
+        Assertions.assertArrayEquals(a2, new int[] { 0, 2 });
+    }
 }
