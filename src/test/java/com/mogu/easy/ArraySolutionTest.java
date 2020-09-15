@@ -114,4 +114,42 @@ class ArraySolutionTest {
         ArrayUtils.printArray(a3);
         Assertions.assertArrayEquals(a3, new int[] { 1, 0 });
     }
+
+    @Test
+    void moveZeroes() {
+        int[] nums = { 0, 4, 0, 9, 5 };
+        test.moveZeroes(nums);
+        ArrayUtils.printArray(nums);
+        Assertions.assertArrayEquals(nums, new int[] { 4, 9, 5, 0, 0 });
+
+        int[] nums2 = { 0, 4, 0, 0, 9, 5 };
+        test.moveZeroes(nums2);
+        ArrayUtils.printArray(nums2);
+        Assertions.assertArrayEquals(nums2, new int[] { 4, 9, 5, 0, 0, 0 });
+
+        int[] nums3 = { 4, 9, 5, 0, 0 };
+        test.moveZeroes(nums3);
+        ArrayUtils.printArray(nums3);
+        Assertions.assertArrayEquals(nums3, new int[] { 4, 9, 5, 0, 0 });
+
+        int[] nums4 = { 0, 1 };
+        test.moveZeroes(nums4);
+        ArrayUtils.printArray(nums4);
+        Assertions.assertArrayEquals(nums4, new int[] { 1, 0 });
+
+        int[] nums5 = { 1 };
+        test.moveZeroes(nums5);
+        ArrayUtils.printArray(nums5);
+        Assertions.assertArrayEquals(nums5, new int[] { 1 });
+
+        int[] nums6 = { 2, 1 };
+        test.moveZeroes(nums6);
+        ArrayUtils.printArray(nums6);
+        Assertions.assertArrayEquals(nums6, new int[] { 2, 1 });
+
+        int[] nums7 = { 0, 1, 0 };
+        test.moveZeroes(nums7);
+        ArrayUtils.printArray(nums7);
+        Assertions.assertArrayEquals(nums7, new int[] { 1, 0, 0 });
+    }
 }

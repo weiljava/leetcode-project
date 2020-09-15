@@ -2,10 +2,7 @@ package com.mogu.easy;
 
 import com.mogu.util.ArrayUtils;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -197,6 +194,24 @@ public class ArraySolution {
         digits = new int[len + 1];
         digits[0] = 1;
         return digits;
+    }
+
+    /**
+     * 移动零
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2ba4i/
+     *
+     * @param nums
+     */
+    public void moveZeroes(int[] nums) {
+        int j = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[j++] = nums[i];
+            }
+        }
+        for (int k = nums.length - j; k > 0; k--) {
+            nums[nums.length - k] = 0;
+        }
     }
 
 }
