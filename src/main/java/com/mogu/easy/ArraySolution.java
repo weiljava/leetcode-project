@@ -100,7 +100,7 @@ public class ArraySolution {
 
     /**
      * 两个数组的交集 II
-     * https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2y0c2/
      *
      * @param nums1
      * @param nums2
@@ -126,7 +126,7 @@ public class ArraySolution {
 
     /**
      * 两个数组的交集 II
-     * https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2y0c2/
      *
      * @param nums1
      * @param nums2
@@ -233,5 +233,4 @@ public class ArraySolution {
         }
         return new int[0];
     }
-
 }
