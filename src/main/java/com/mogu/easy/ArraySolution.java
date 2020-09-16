@@ -64,29 +64,26 @@ public class ArraySolution {
         }
         //标记数组
         int[] indexs = new int[nums2.length];
-        for (int i = 0; i < indexs.length; i++) {
-            indexs[i] = -1;
-        }
         //结果数组长度
-        int index =0;
+        int index = 0;
         for (int i = 0; i < nums1.length; i++) {
             for (int j = 0; j < nums2.length; j++) {
-                if (nums1[i] == nums2[j] && indexs[j] == -1) {
-                    indexs[j] = 0;
+                if (nums1[i] == nums2[j] && indexs[j] == 0) {
+                    indexs[j] = -1;
                     index++;
                     break;
                 }
             }
         }
         int[] result = new int[index];
-        int index1=0;
+        int index1 = 0;
         for (int i = 0; i < indexs.length; i++) {
-            if (indexs[i] != -1) {
+            if (indexs[i] == -1) {
                 result[index1] = nums2[i];
                 index1++;
             }
         }
-        return  result;
+        return result;
     }
 
 
