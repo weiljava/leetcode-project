@@ -51,5 +51,43 @@ public class ArraySolution {
         return i + 1;
     }
 
+    /**
+     * 获取2个数组的交集
+     * 思路;循环比对，加标记
+     *
+     * @param nums1,nums2
+     * @return
+     */
+    public int[] arrayIntersect(int[] nums1, int[] nums2) {
+        if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) {
+            return new int[0];
+        }
+        //标记数组
+        int[] indexs = new int[nums2.length];
+        for (int i = 0; i < indexs.length; i++) {
+            indexs[i] = -1;
+        }
+        //结果数组长度
+        int index =0;
+        for (int i = 0; i < nums1.length; i++) {
+            for (int j = 0; j < nums2.length; j++) {
+                if (nums1[i] == nums2[j] && indexs[j] == -1) {
+                    indexs[j] = 0;
+                    index++;
+                    break;
+                }
+            }
+        }
+        int[] result = new int[index];
+        int index1=0;
+        for (int i = 0; i < indexs.length; i++) {
+            if (indexs[i] != -1) {
+                result[index1] = nums2[i];
+                index1++;
+            }
+        }
+        return  result;
+    }
+
 
 }

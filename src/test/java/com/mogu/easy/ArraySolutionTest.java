@@ -32,4 +32,14 @@ class ArraySolutionTest {
         System.out.println(a);
     }
 
+    @Test
+    void arrayIntersect() {
+        int[] nums1 = {4,9,5};;
+        ArrayUtils.printArray(nums1);
+        int[] nums2 = {9,4,9,8,4};
+        ArrayUtils.printArray(nums2);
+        int[] result = test.arrayIntersect(nums1,nums2);
+        ArrayUtils.printArray(result);
+    }
+
 }
