@@ -1,5 +1,6 @@
 package com.mogu.easy;
 
+import com.mogu.util.SortUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,7 +37,7 @@ class StringSolutionTest {
     void reverse() {
         Assertions.assertEquals(test.reverse(123), 321);
         Assertions.assertEquals(test.reverse(-123), -321);
-        Assertions.assertEquals(test.reverse(120), 12);
-
+        Assertions.assertEquals(test.reverse(120), 21);
+        Assertions.assertEquals(test.reverse(1534236469), 0);
     }
 }

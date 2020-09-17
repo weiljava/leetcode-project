@@ -1,5 +1,10 @@
 package com.mogu.easy;
 
+import com.mogu.util.ArrayUtils;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
 /**
  * Created with IntelliJ IDEA.
  * User: dinghw
@@ -32,11 +37,23 @@ public class StringSolution {
      * @return
      */
     public int reverse(int x) {
-        if (x > Integer.MAX_VALUE || x < Integer.MIN_VALUE) {
-            return 0;
+        LinkedList<Long> stack = new LinkedList<>();
+        while (x != 0) {
+            long num = x % 10;
+            x = x / 10;
+            stack.add(num);
         }
-        int a = Integer.reverse(x);
-        System.out.println(a);
-        return a;
+        long i = 1l;
+        long rev = 0l;
+        while (stack.size() > 0) {
+            rev = rev + stack.removeLast() * i;
+            if (rev > Integer.MAX_VALUE) {
+                return 0;
+            } else if (rev < Integer.MIN_VALUE) {
+                return 0;
+            }
+            i = i * 10;
+        }
+        return (int) rev;
     }
 }

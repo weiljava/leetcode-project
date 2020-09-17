@@ -22,4 +22,18 @@ public class ArrayUtils {
         }
         System.out.println("");
     }
+
+
+    public static void printArray(Object[] arrays) {
+        System.out.print("打印数组开始：");
+        if (arrays != null && arrays.length > 0) {
+            for (int i = 0; i < arrays.length; i++) {
+                System.out.print(arrays[i]);
+                if (i < arrays.length - 1) {
+                    System.out.print(",");
+                }
+            }
+        }
+        System.out.println("");
+    }
 }
