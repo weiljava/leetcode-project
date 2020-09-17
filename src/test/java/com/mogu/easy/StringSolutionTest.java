@@ -40,4 +40,10 @@ class StringSolutionTest {
         Assertions.assertEquals(test.reverse(120), 21);
         Assertions.assertEquals(test.reverse(1534236469), 0);
     }
+
+    @Test
+    void firstUniqChar() {
+        Assertions.assertEquals(test.firstUniqChar("leetcode"), 0);
+        Assertions.assertEquals(test.firstUniqChar("loveleetcode"), 2);
+    }
 }

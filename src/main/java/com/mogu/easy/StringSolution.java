@@ -1,9 +1,8 @@
 package com.mogu.easy;
 
-import com.mogu.util.ArrayUtils;
-
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
-import java.util.Stack;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -55,5 +54,26 @@ public class StringSolution {
             i = i * 10;
         }
         return (int) rev;
+    }
+
+    /**
+     * 字符串中的第一个唯一字符
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xn5z8r/
+     *
+     * @param s
+     * @return
+     */
+    public int firstUniqChar(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            int index = s.indexOf(chars[i]);
+            int index2 = s.indexOf(chars[i], index + 1);
+            if (index2 > index) {
+                continue;
+            } else {
+                return i;
+            }
+        }
+        return -1;
     }
 }
