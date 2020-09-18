@@ -135,25 +135,15 @@ public class StringSolution {
             return s;
         }
         StringBuffer newStr = new StringBuffer("");
-        Map<Character, Integer> map = new HashMap<>(1);
+        int j = 1;
         char[] chars = s.toCharArray();
         for (int i = 0; i < chars.length; i++) {
-            if (i == 0) {
-                map.put(chars[0], 1);
+            if (i + 1 < chars.length && chars[i] == chars[i + 1]) {
+                j++;
             } else {
-                if (map.containsKey(chars[i])) {
-                    map.put(chars[i], map.get(chars[i]) + 1);
-                } else {
-                    for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-                        newStr.append(entry.getValue()).append(entry.getKey());
-                    }
-                    map = new HashMap<>(1);
-                    map.put(chars[i], map.getOrDefault(chars, 1));
-                }
+                newStr.append(j).append(chars[i]);
+                j = 1;
             }
-        }
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            newStr.append(entry.getValue()).append(entry.getKey());
         }
         return recursionCountAndSay(newStr.toString(), ++index, n);
     }
