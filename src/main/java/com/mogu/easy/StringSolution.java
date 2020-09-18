@@ -135,7 +135,7 @@ public class StringSolution {
             return s;
         }
         StringBuffer newStr = new StringBuffer("");
-        Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>(1);
         char[] chars = s.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             if (i == 0) {
@@ -147,12 +147,11 @@ public class StringSolution {
                     for (Map.Entry<Character, Integer> entry : map.entrySet()) {
                         newStr.append(entry.getValue()).append(entry.getKey());
                     }
-                    map = new HashMap<>();
+                    map = new HashMap<>(1);
                     map.put(chars[i], map.getOrDefault(chars, 1));
                 }
             }
         }
-
         for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             newStr.append(entry.getValue()).append(entry.getKey());
         }
