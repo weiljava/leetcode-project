@@ -112,4 +112,50 @@ public class StringSolution {
         }
         return -1;
     }
+
+    /**
+     * 外观数列
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnpvdm/
+     *
+     * @param n
+     * @return
+     */
+    public String countAndSay(int n) {
+        if (n == 0) {
+            return "";
+        }
+        if (n == 1) {
+            return "1";
+        }
+        return recursionCountAndSay("1", 1, n);
+    }
+
+    private String recursionCountAndSay(String s, int index, int n) {
+        if (index >= n) {
+            return s;
+        }
+        StringBuffer newStr = new StringBuffer("");
+        Map<Character, Integer> map = new HashMap<>();
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (i == 0) {
+                map.put(chars[0], 1);
+            } else {
+                if (map.containsKey(chars[i])) {
+                    map.put(chars[i], map.get(chars[i]) + 1);
+                } else {
+                    for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+                        newStr.append(entry.getValue()).append(entry.getKey());
+                    }
+                    map = new HashMap<>();
+                    map.put(chars[i], map.getOrDefault(chars, 1));
+                }
+            }
+        }
+
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            newStr.append(entry.getValue()).append(entry.getKey());
+        }
+        return recursionCountAndSay(newStr.toString(), ++index, n);
+    }
 }
