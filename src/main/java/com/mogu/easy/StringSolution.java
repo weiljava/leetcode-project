@@ -78,4 +78,39 @@ public class StringSolution {
         }
         return -1;
     }
+
+    /**
+     * 实现String.indexOf方法
+     *
+     * @param haystack
+     * @param needle
+     * @return
+     */
+    public int strStr(String haystack, String needle) {
+        if (needle == null || "".equals(needle)) {
+            return 0;
+        }
+        if (needle.length() > haystack.length()) {
+            return -1;
+        }
+        char[] chars1 = haystack.toCharArray();
+        char[] chars2 = needle.toCharArray();
+        for (int i = 0; i < chars1.length; i++) {
+            if (chars1[i] == chars2[0]) {
+                int j = 0;
+                int k = i;
+                while (j < chars2.length) {
+                    if (chars2[j] == chars1[k]) {
+                        j++;
+                        k++;
+                    }
+                }
+                if (j == chars2.length) {
+                    return i;
+                }
+            }
+        }
+
+        return -1;
+    }
 }

@@ -46,4 +46,12 @@ class StringSolutionTest {
         Assertions.assertEquals(test.firstUniqChar("leetcode"), 0);
         Assertions.assertEquals(test.firstUniqChar("loveleetcode"), 2);
     }
+
+    @Test
+    void strStr() {
+        Assertions.assertEquals(test.strStr("abcdef", "ef"), 4);
+        Assertions.assertEquals(test.strStr("hello", "ll"), 2);
+        Assertions.assertEquals(test.strStr("aaaaa", "bba"), -1);
+        Assertions.assertEquals(test.strStr("aaaaa", ""), 0);
+    }
 }
