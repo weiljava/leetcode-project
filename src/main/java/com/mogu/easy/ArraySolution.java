@@ -130,10 +130,12 @@ public class ArraySolution {
     public String appearanceArray(int index) {
         List<Integer> start = new ArrayList<>();
         for (int i = 1; i <= index; i++) {
+            //初始化数据
             if (i == 1) {
                 start.add(1);
             } else {
                 List<Integer> newList = new ArrayList<>();
+                //遍历计算连续的数字
                 for (int j = 0; j < start.size(); j++) {
                     int count = 1;
                     for (int k = j + 1; k < start.size(); k++) {
@@ -145,12 +147,14 @@ public class ArraySolution {
                     }
                     newList.add(count);
                     newList.add(start.get(j));
+                    //跳过重复部分
                     j = j + count-1;
                 }
                 start = newList;
             }
         }
         StringBuffer result = new StringBuffer("");
+        //获取结果
         for (int j = 0; j < start.size(); j++) {
             result.append(start.get(j));
         }
