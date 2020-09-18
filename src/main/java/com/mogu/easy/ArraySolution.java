@@ -2,6 +2,9 @@ package com.mogu.easy;
 
 import com.mogu.util.ArrayUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * User: zuofan
  * Date: 2020/9/14
@@ -121,5 +124,36 @@ public class ArraySolution {
             return result;
         }
 
+    }
+
+    //外观数组
+    public String appearanceArray(int index) {
+        List<Integer> start = new ArrayList<>();
+        for (int i = 1; i <= index; i++) {
+            if (i == 1) {
+                start.add(1);
+            } else {
+                List<Integer> newList = new ArrayList<>();
+                for (int j = 0; j < start.size(); j++) {
+                    int count = 1;
+                    for (int k = j + 1; k < start.size(); k++) {
+                        if (start.get(j) == start.get(k)) {
+                            count++;
+                        } else {
+                            break;
+                        }
+                    }
+                    newList.add(count);
+                    newList.add(start.get(j));
+                    j = j + count-1;
+                }
+                start = newList;
+            }
+        }
+        StringBuffer result = new StringBuffer("");
+        for (int j = 0; j < start.size(); j++) {
+            result.append(start.get(j));
+        }
+        return result.toString();
     }
 }
