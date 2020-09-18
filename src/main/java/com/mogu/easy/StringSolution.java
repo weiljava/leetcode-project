@@ -95,22 +95,21 @@ public class StringSolution {
         }
         char[] chars1 = haystack.toCharArray();
         char[] chars2 = needle.toCharArray();
+        int needleLength = chars2.length;
+
         for (int i = 0; i < chars1.length; i++) {
-            if (chars1[i] == chars2[0]) {
+            if (chars1[i] == chars2[0] && i + needleLength - 1 < chars1.length) {
                 int j = 0;
-                int k = i;
-                while (j < chars2.length) {
-                    if (chars2[j] == chars1[k]) {
-                        j++;
-                        k++;
+                for (; j < needleLength; j++) {
+                    if (chars1[i + j] != chars2[j]) {
+                        break;
                     }
                 }
-                if (j == chars2.length) {
+                if (j == needleLength) {
                     return i;
                 }
             }
         }
-
         return -1;
     }
 }

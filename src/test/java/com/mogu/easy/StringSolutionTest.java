@@ -53,5 +53,7 @@ class StringSolutionTest {
         Assertions.assertEquals(test.strStr("hello", "ll"), 2);
         Assertions.assertEquals(test.strStr("aaaaa", "bba"), -1);
         Assertions.assertEquals(test.strStr("aaaaa", ""), 0);
+        Assertions.assertEquals(test.strStr("a", "a"), 0);
+        Assertions.assertEquals(test.strStr("mississippi", "issip"), 4);
     }
 }
