@@ -89,7 +89,7 @@ public class ArraySolution {
 
     //数组加1
     public int[] arrayAddOne(int[] nums1) {
-        //判断舒服+1位
+        //判断数组+1位
         boolean isOut = true;
         for (int i = 0; i < nums1.length; i++) {
             if (nums1[i] != 9) {
