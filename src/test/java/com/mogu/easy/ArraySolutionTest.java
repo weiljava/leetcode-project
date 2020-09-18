@@ -42,4 +42,17 @@ class ArraySolutionTest {
         ArrayUtils.printArray(result);
     }
 
+    @Test
+    void arrayAddOne() {
+        int[] nums1 = {9,9,9};;
+        ArrayUtils.printArray(nums1);
+        ArrayUtils.printArray(test.arrayAddOne(nums1));
+        int[] nums2 = {9,4,9,9,9};
+        ArrayUtils.printArray(nums2);
+        ArrayUtils.printArray(test.arrayAddOne(nums2));
+        int[] nums3 = {9,9,2};;
+        ArrayUtils.printArray(nums3);
+        ArrayUtils.printArray(test.arrayAddOne(nums3));
+    }
+
 }

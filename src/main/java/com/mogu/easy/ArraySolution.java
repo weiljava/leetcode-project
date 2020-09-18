@@ -87,4 +87,39 @@ public class ArraySolution {
     }
 
 
+    //数组加1
+    public int[] arrayAddOne(int[] nums1) {
+        //判断舒服+1位
+        boolean isOut = true;
+        for (int i = 0; i < nums1.length; i++) {
+            if (nums1[i] != 9) {
+                isOut = false;
+                break;
+            }
+        }
+        if (isOut) {
+            int[] result = new int[nums1.length + 1];
+            result[0] = 1;
+            return result;
+        } else {
+            int[] result = new int[nums1.length];
+            //判断是否继续+1
+            boolean hasAdd = true;
+            for (int i = nums1.length - 1; i > -1; i--) {
+                if (hasAdd) {
+                    if (nums1[i] == 9) {
+                        result[i] = 0;
+                    } else {
+                        result[i] = nums1[i] + 1;
+                        hasAdd = false;
+                    }
+                } else {
+                    result[i] = nums1[i];
+                }
+
+            }
+            return result;
+        }
+
+    }
 }
