@@ -24,9 +24,6 @@ public class LinkedListSolution {
      * @return
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        if (head.getNext() == null && n == 1) {
-            return null;
-        }
         ListNode node = new ListNode(0);
         node.setNext(head);
         ListNode newCode = new ListNode(0);
