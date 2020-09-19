@@ -24,22 +24,25 @@ public class LinkedListSolution {
      * @return
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode node = head;
-        ListNode newCode = head;
-        int i = 1;
-        while (head.getNext() != null) {
-            head = head.getNext();
+        ListNode node = new ListNode(0);
+        node.setNext(head);
+        ListNode newCode = new ListNode(0);
+        newCode.setNext(head);
+        int i = 0;
+        int j = 0;
+        while (newCode.getNext() != null) {
+            newCode = newCode.getNext();
+            if (i - j == n) {
+                node = node.getNext();
+                j++;
+            }
             i++;
         }
-        int j = 1;
-        while (node.getNext() != null) {
-            if (j == i - n) {
-                newCode.setNext(newCode.getNext().getNext());
-            }
-            node = node.getNext();
-            j++;
+        if (node.getNext().getNext() == null) {
+            return null;
+        } else {
+            node.setNext(node.getNext().getNext());
+            return head;
         }
-        System.out.println(i);
-        return newCode;
     }
 }
