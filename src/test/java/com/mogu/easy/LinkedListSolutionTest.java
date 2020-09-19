@@ -73,6 +73,7 @@ class LinkedListSolutionTest {
 
     @Test
     void removeNthFromEnd5() {
+        //此场景未通过
         print("输入", listNode4, 2);
         printResult("输出", test.removeNthFromEnd(listNode4, 2));
     }

@@ -41,9 +41,15 @@ public class LinkedListSolution {
             }
             i++;
         }
-        if (node.getNext().getNext() == null && n != 1) {
+
+        if (i == n) {
+            //首位删除
+            return head.getNext();
+        } else if (node.getNext().getNext() == null && n != 1) {
+            //末尾节点删除
             return null;
         } else {
+            //中间节点删除
             node.setNext(node.getNext().getNext());
             return head;
         }
