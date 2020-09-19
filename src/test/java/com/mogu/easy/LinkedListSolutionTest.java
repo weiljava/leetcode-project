@@ -51,13 +51,39 @@ class LinkedListSolutionTest {
     void removeNthFromEnd() {
         print("输入", listNode, 2);
         printResult("输出", test.removeNthFromEnd(listNode, 2));
+    }
 
-        print("输入", listNode5, 2);
+    @Test
+    void removeNthFromEnd2() {
+        print("输入", listNode, 1);
+        printResult("输出", test.removeNthFromEnd(listNode, 1));
+    }
+
+    @Test
+    void removeNthFromEnd3() {
+        print("输入", listNode5, 1);
         printResult("输出", test.removeNthFromEnd(listNode5, 1));
+    }
 
+    @Test
+    void removeNthFromEnd4() {
         print("输入", listNode4, 1);
         printResult("输出", test.removeNthFromEnd(listNode4, 1));
     }
+
+    @Test
+    void removeNthFromEnd5() {
+        print("输入", listNode4, 2);
+        printResult("输出", test.removeNthFromEnd(listNode4, 2));
+    }
+
+
+
+
+
+
+
+
 
     private void print(String desc, ListNode listNode, int n) {
         System.out.print(desc + "链表：");
