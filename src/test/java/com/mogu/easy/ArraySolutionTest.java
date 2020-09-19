@@ -35,28 +35,23 @@ class ArraySolutionTest {
     }
 
     @Test
-    void rotate() {
-        int[] nums = {1, 2, 3, 4, 5, 6, 7};
-        ArrayUtils.printArray(nums);
-        test.rotate(nums, 3);
-
-        System.out.println("==========");
-        int[] nums2 = {-1, -100, 3, 99};
-        ArrayUtils.printArray(nums2);
-        test.rotate(nums2, 2);
+    void plusOne(){
+        int[] nums1 = {1,2,3};
+        int[] nums2 = {1,9,9};
+        int[] nums3 = {9,9,9};
+        int[] result1 = test.plusOne(nums1);
+        int[] result2 = test.plusOne(nums2);
+        int[] result3 = test.plusOne(nums3);
+        ArrayUtils.printArray(result1);
+        ArrayUtils.printArray(result2);
+        ArrayUtils.printArray(result3);
     }
 
     @Test
-    void containsDuplicate() {
-        int[] nums = {1, 3, 4, 2};
-        boolean b = test.containsDuplicate(nums);
-        System.out.println(b);
-    }
-
-    @Test
-    void singleNumber() {
-        int[] nums = {4, 1, 2, 1, 2};
-        int a = test.singleNumber(nums);
-        System.out.println(a);
+    void intersect(){
+        int[] nums1 = {1,2,3,3,4,8};
+        int[] nums2 = {1,9,2,2,3,3,6,8};
+        int[] result = test.intersect(nums1,nums2);
+        ArrayUtils.printArray(result);
     }
 }
