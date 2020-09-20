@@ -7,6 +7,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArraySolutionTest {
@@ -58,5 +60,20 @@ class ArraySolutionTest {
         int[] nums = {4, 1, 2, 1, 2};
         int a = test.singleNumber(nums);
         System.out.println(a);
+    }
+
+    @Test
+    void filterSingleNum() {
+        int[] nums = {1, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 8};
+        int num = test.filterSingleNum(nums);
+        System.out.println(num);
+    }
+
+    @Test
+    void intersection() {
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {2, 3, 5};
+        int[] intersection = test.intersection(arr1, arr2);
+        System.out.println(Arrays.toString(intersection));
     }
 }

@@ -2,9 +2,7 @@ package com.mogu.easy;
 
 import com.mogu.util.ArrayUtils;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -101,5 +99,61 @@ public class ArraySolution {
             }
         }
         return -1;
+    }
+
+    /**
+     * 删除排序数组中的重复项
+     *
+     * @param nums
+     * @return
+     */
+    public int filterSingleNum(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int i = 0;
+        int j = 0;
+        for (i = 1; i < nums.length; i++) {
+            if (nums[j] != nums[i]) {
+                nums[++j] = nums[i];
+            }
+        }
+        return j + 1;
+    }
+
+    /**
+     * 两个数组的交集
+     *
+     * @param arr1
+     * @param arr2
+     * @return
+     */
+    public int[] intersection(int[] arr1, int[] arr2) {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < arr1.length; i++) {
+            Integer value = map.get(arr1[i]);
+            if (value == null) {
+                map.put(arr1[i], 1);
+            } else {
+                map.put(arr1[i], ++value);
+            }
+        }
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i = 0; i < arr2.length; i++) {
+            if (map.containsKey(arr2[i])) {
+                Integer checkValue = map.get(arr2[i]);
+                if (checkValue > 0) {
+                    list.add(arr2[i]);
+                    map.put(arr2[i], --checkValue);
+                }
+            }
+        }
+
+        int[] returnArr = new int[list.size()];
+        int index = 0;
+        for (int value : list) {
+            returnArr[index++] = value;
+        }
+        return returnArr;
     }
 }
