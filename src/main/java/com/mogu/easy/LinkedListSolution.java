@@ -59,6 +59,9 @@ public class LinkedListSolution {
      * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnnhm6/
      */
     public ListNode reverseList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
         ListNode newCode = new ListNode(0);
         reverseList(newCode, head);
         return newCode.getNext();
