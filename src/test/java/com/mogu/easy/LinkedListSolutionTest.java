@@ -104,18 +104,18 @@ class LinkedListSolutionTest {
     @Test
     void reverseList() {
         printCommon("输入", listNode);
-        printCommon("输出", test.reverseList(listNode));
+        printCommon("输出", test.reverseList2(listNode));
     }
 
     @Test
     void reverseList2() {
         printCommon("输入", listNode4);
-        printCommon("输出", test.reverseList(listNode4));
+        printCommon("输出", test.reverseList2(listNode4));
     }
 
     @Test
     void reverseList3() {
         printCommon("输入", listNode5);
-        printCommon("输出", test.reverseList(listNode5));
+        printCommon("输出", test.reverseList2(listNode5));
     }
 }

@@ -59,8 +59,8 @@ public class LinkedListSolution {
      * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnnhm6/
      */
     public ListNode reverseList(ListNode head) {
-        if (head == null) {
-            return null;
+        if (head == null || head.getNext() == null) {
+            return head;
         }
         ListNode newCode = new ListNode(0);
         reverseList(newCode, head);
@@ -78,5 +78,27 @@ public class LinkedListSolution {
             newCode.setNext(nextNode);
             return nextNode;
         }
+    }
+
+    /**
+     * 双指针解题：https://pic.leetcode-cn.com/9ce26a709147ad9ce6152d604efc1cc19a33dc5d467ed2aae5bc68463fdd2888.gif
+     *
+     * @param head
+     * @return
+     */
+    public ListNode reverseList2(ListNode head) {
+        if (head == null || head.getNext() == null) {
+            return head;
+        }
+        ListNode curr = null;
+        ListNode pre = head;
+        while (pre != null) {
+            ListNode nextNode = pre.getNext();
+            pre.setNext(curr);
+            curr = pre;
+            pre = nextNode;
+        }
+
+        return curr;
     }
 }
