@@ -4,8 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class LinkedListSolutionTest {
 
     private LinkedListSolution test;
@@ -34,58 +32,6 @@ class LinkedListSolutionTest {
         startTime = System.currentTimeMillis();
     }
 
-    @AfterEach
-    void tearDown() {
-        endTime = System.currentTimeMillis();
-        System.out.println("方法耗时：" + (endTime - startTime) + "ms");
-    }
-
-    @Test
-    void deleteNode() {
-        print("输入", listNode, 0);
-        test.deleteNode(listNode);
-        printResult("输出", listNode);
-    }
-
-    @Test
-    void removeNthFromEnd() {
-        print("输入", listNode, 2);
-        printResult("输出", test.removeNthFromEnd(listNode, 2));
-    }
-
-    @Test
-    void removeNthFromEnd2() {
-        print("输入", listNode, 1);
-        printResult("输出", test.removeNthFromEnd(listNode, 1));
-    }
-
-    @Test
-    void removeNthFromEnd3() {
-        print("输入", listNode5, 1);
-        printResult("输出", test.removeNthFromEnd(listNode5, 1));
-    }
-
-    @Test
-    void removeNthFromEnd4() {
-        print("输入", listNode4, 1);
-        printResult("输出", test.removeNthFromEnd(listNode4, 1));
-    }
-
-    @Test
-    void removeNthFromEnd5() {
-        //此场景未通过
-        print("输入", listNode4, 2);
-        printResult("输出", test.removeNthFromEnd(listNode4, 2));
-    }
-
-
-
-
-
-
-
-
-
     private void print(String desc, ListNode listNode, int n) {
         System.out.print(desc + "链表：");
         while (listNode != null) {
@@ -99,8 +45,7 @@ class LinkedListSolutionTest {
         System.out.println(desc + "数字：" + n);
     }
 
-
-    private void printResult(String desc, ListNode listNode) {
+    private void printCommon(String desc, ListNode listNode) {
         System.out.print(desc + "链表：");
         while (listNode != null) {
             System.out.print(listNode.getVal());
@@ -110,5 +55,67 @@ class LinkedListSolutionTest {
             listNode = listNode.getNext();
         }
         System.out.println("");
+    }
+
+    @AfterEach
+    void tearDown() {
+        endTime = System.currentTimeMillis();
+        System.out.println("方法耗时：" + (endTime - startTime) + "ms");
+    }
+
+    @Test
+    void deleteNode() {
+        print("输入", listNode, 0);
+        test.deleteNode(listNode);
+        printCommon("输出", listNode);
+    }
+
+    @Test
+    void removeNthFromEnd() {
+        print("输入", listNode, 2);
+        printCommon("输出", test.removeNthFromEnd(listNode, 2));
+    }
+
+    @Test
+    void removeNthFromEnd2() {
+        print("输入", listNode, 1);
+        printCommon("输出", test.removeNthFromEnd(listNode, 1));
+    }
+
+    @Test
+    void removeNthFromEnd3() {
+        print("输入", listNode5, 1);
+        printCommon("输出", test.removeNthFromEnd(listNode5, 1));
+    }
+
+    @Test
+    void removeNthFromEnd4() {
+        print("输入", listNode4, 1);
+        printCommon("输出", test.removeNthFromEnd(listNode4, 1));
+    }
+
+    @Test
+    void removeNthFromEnd5() {
+        //此场景未通过
+        print("输入", listNode4, 2);
+        printCommon("输出", test.removeNthFromEnd(listNode4, 2));
+    }
+
+    @Test
+    void reverseList() {
+        printCommon("输入", listNode);
+        printCommon("输出", test.reverseList(listNode));
+    }
+
+    @Test
+    void reverseList2() {
+        printCommon("输入", listNode4);
+        printCommon("输出", test.reverseList(listNode4));
+    }
+
+    @Test
+    void reverseList3() {
+        printCommon("输入", listNode5);
+        printCommon("输出", test.reverseList(listNode5));
     }
 }

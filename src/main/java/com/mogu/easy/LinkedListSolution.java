@@ -1,5 +1,7 @@
 package com.mogu.easy;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: dinghw
@@ -49,6 +51,29 @@ public class LinkedListSolution {
             //中间节点删除
             node.setNext(node.getNext().getNext());
             return head;
+        }
+    }
+
+    /**
+     * 反转链表
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnnhm6/
+     */
+    public ListNode reverseList(ListNode head) {
+        ListNode newCode = new ListNode(0);
+        reverseList(newCode, head);
+        return newCode.getNext();
+    }
+
+    private ListNode reverseList(ListNode newCode, ListNode head) {
+        if (head.getNext() == null) {
+            //最后一个元素
+            newCode.setNext(head);
+            return head;
+        } else {
+            newCode = reverseList(newCode, head.getNext());
+            ListNode nextNode = new ListNode(head.getVal());
+            newCode.setNext(nextNode);
+            return nextNode;
         }
     }
 }
