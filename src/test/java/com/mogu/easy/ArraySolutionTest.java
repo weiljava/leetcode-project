@@ -100,19 +100,19 @@ class ArraySolutionTest {
     @Test
     void plusOne() {
         int[] nums = { 4, 9, 5 };
-        int[] a = test.plusOne(nums);
+        int[] a = test.plusOne2(nums);
         ArrayUtils.printArray(a);
         Assertions.assertArrayEquals(a, new int[] { 4, 9, 6 });
 
         int[] nums2 = { 4, 9, 9 };
-        int[] a2 = test.plusOne(nums2);
+        int[] a2 = test.plusOne2(nums2);
         ArrayUtils.printArray(a2);
         Assertions.assertArrayEquals(a2, new int[] { 5, 0, 0 });
 
-        int[] nums3 = { 9 };
-        int[] a3 = test.plusOne(nums3);
+        int[] nums3 = { 9, 9 };
+        int[] a3 = test.plusOne2(nums3);
         ArrayUtils.printArray(a3);
-        Assertions.assertArrayEquals(a3, new int[] { 1, 0 });
+        Assertions.assertArrayEquals(a3, new int[] { 1, 0, 0 });
     }
 
     @Test
