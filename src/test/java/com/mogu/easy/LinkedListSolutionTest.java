@@ -1,5 +1,6 @@
 package com.mogu.easy;
 
+import com.mogu.util.LinkedListUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,37 +25,12 @@ class LinkedListSolutionTest {
         listNode3 = new ListNode(3);
         listNode4 = new ListNode(4);
         listNode5 = new ListNode(5);
-        listNode4.setNext(listNode5);
-        listNode3.setNext(listNode4);
-        listNode2.setNext(listNode3);
-        listNode.setNext(listNode2);
+        listNode4.next = listNode5;
+        listNode3.next = listNode4;
+        listNode2.next = listNode3;
+        listNode.next = listNode2;
 
         startTime = System.currentTimeMillis();
-    }
-
-    private void print(String desc, ListNode listNode, int n) {
-        System.out.print(desc + "链表：");
-        while (listNode != null) {
-            System.out.print(listNode.getVal());
-            if (listNode.getNext() != null) {
-                System.out.print("->");
-            }
-            listNode = listNode.getNext();
-        }
-        System.out.println("");
-        System.out.println(desc + "数字：" + n);
-    }
-
-    private void printCommon(String desc, ListNode listNode) {
-        System.out.print(desc + "链表：");
-        while (listNode != null) {
-            System.out.print(listNode.getVal());
-            if (listNode.getNext() != null) {
-                System.out.print("->");
-            }
-            listNode = listNode.getNext();
-        }
-        System.out.println("");
     }
 
     @AfterEach
@@ -65,57 +41,102 @@ class LinkedListSolutionTest {
 
     @Test
     void deleteNode() {
-        print("输入", listNode, 0);
+        LinkedListUtils.print("输入", listNode, 0);
         test.deleteNode(listNode);
-        printCommon("输出", listNode);
+        LinkedListUtils.printCommon("输出", listNode);
     }
 
     @Test
     void removeNthFromEnd() {
-        print("输入", listNode, 2);
-        printCommon("输出", test.removeNthFromEnd(listNode, 2));
+        LinkedListUtils.print("输入", listNode, 2);
+        LinkedListUtils.printCommon("输出", test.removeNthFromEnd(listNode, 2));
     }
 
     @Test
     void removeNthFromEnd2() {
-        print("输入", listNode, 1);
-        printCommon("输出", test.removeNthFromEnd(listNode, 1));
+        LinkedListUtils.print("输入", listNode, 1);
+        LinkedListUtils.printCommon("输出", test.removeNthFromEnd(listNode, 1));
     }
 
     @Test
     void removeNthFromEnd3() {
-        print("输入", listNode5, 1);
-        printCommon("输出", test.removeNthFromEnd(listNode5, 1));
+        LinkedListUtils.print("输入", listNode5, 1);
+        LinkedListUtils.printCommon("输出", test.removeNthFromEnd(listNode5, 1));
     }
 
     @Test
     void removeNthFromEnd4() {
-        print("输入", listNode4, 1);
-        printCommon("输出", test.removeNthFromEnd(listNode4, 1));
+        LinkedListUtils.print("输入", listNode4, 1);
+        LinkedListUtils.printCommon("输出", test.removeNthFromEnd(listNode4, 1));
     }
 
     @Test
     void removeNthFromEnd5() {
         //此场景未通过
-        print("输入", listNode4, 2);
-        printCommon("输出", test.removeNthFromEnd(listNode4, 2));
+        LinkedListUtils.print("输入", listNode4, 2);
+        LinkedListUtils.printCommon("输出", test.removeNthFromEnd(listNode4, 2));
     }
 
     @Test
     void reverseList() {
-        printCommon("输入", listNode);
-        printCommon("输出", test.reverseList2(listNode));
+        LinkedListUtils.printCommon("输入", listNode);
+        LinkedListUtils.printCommon("输出", test.reverseList2(listNode));
     }
 
     @Test
     void reverseList2() {
-        printCommon("输入", listNode4);
-        printCommon("输出", test.reverseList2(listNode4));
+        LinkedListUtils.printCommon("输入", listNode4);
+        LinkedListUtils.printCommon("输出", test.reverseList2(listNode4));
     }
 
     @Test
     void reverseList3() {
-        printCommon("输入", listNode5);
-        printCommon("输出", test.reverseList2(listNode5));
+        LinkedListUtils.printCommon("输入", listNode5);
+        LinkedListUtils.printCommon("输出", test.reverseList2(listNode5));
     }
+
+    @Test
+    void mergeTwoLists() {
+        ListNode listNode = new ListNode(5);
+        ListNode listNode2 = new ListNode(6);
+        ListNode listNode4 = new ListNode(7);
+        listNode2.next = listNode4;
+        listNode.next = listNode2;
+
+        ListNode listNode1 = new ListNode(1);
+        ListNode listNode3 = new ListNode(3);
+        listNode1.next = listNode3;
+
+        LinkedListUtils.printCommon("输入", listNode);
+        LinkedListUtils.printCommon("输入", listNode1);
+        LinkedListUtils.printCommon("输出", test.mergeTwoLists(listNode, listNode1));
+    }
+
+    @Test
+    void mergeTwoLists2() {
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode1 = new ListNode(1);
+        LinkedListUtils.printCommon("输入", listNode2);
+        LinkedListUtils.printCommon("输入", listNode1);
+        LinkedListUtils.printCommon("输出", test.mergeTwoLists(listNode2, listNode1));
+    }
+
+    @Test
+    void mergeTwoLists3() {
+        ListNode listNode = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode4 = new ListNode(4);
+        listNode2.next = listNode4;
+        listNode.next = listNode2;
+
+        ListNode listNode1 = new ListNode(1);
+        ListNode listNode3 = new ListNode(3);
+        listNode3.next = listNode4;
+        listNode1.next = listNode3;
+
+        LinkedListUtils.printCommon("输入", listNode);
+        LinkedListUtils.printCommon("输入", listNode1);
+        LinkedListUtils.printCommon("输出", test.mergeTwoLists(listNode, listNode1));
+    }
+
 }

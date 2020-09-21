@@ -1,5 +1,7 @@
 package com.mogu.easy;
 
+import com.mogu.util.LinkedListUtils;
+
 import java.util.List;
 
 /**
@@ -100,5 +102,50 @@ public class LinkedListSolution {
         }
 
         return curr;
+    }
+
+    /**
+     * 合并两个有序链表
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+        if (l1 == null && l2 == null) {
+            return null;
+        }
+
+        ListNode i = l1;
+        ListNode j = l2;
+        boolean flag = true;
+        while (j != null && i != null) {
+            if (i.getVal() <= j.getVal()) {
+                ListNode iNext = i.getNext();
+                i.next = new ListNode(j.getVal(), iNext);
+                j = j.getNext();
+                i = iNext;
+            } else {
+                flag = false;
+                ListNode jNext = j.getNext();
+                if (jNext.val > i.getVal()) {
+                    j.next = i;
+                    j = jNext;
+                    i = i.getNext();
+                } else {
+                    j = j.next;
+                    continue;
+                }
+            }
+        }
+        LinkedListUtils.printCommon("过程l1", l1);
+        LinkedListUtils.printCommon("过程l2", l2);
+        return flag ? l1 : l2;
     }
 }
