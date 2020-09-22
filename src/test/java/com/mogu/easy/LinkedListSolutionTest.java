@@ -139,4 +139,30 @@ class LinkedListSolutionTest {
         LinkedListUtils.printCommon("输出", test.mergeTwoLists(listNode, listNode1));
     }
 
+    @Test
+    void mergeTwoLists4() {
+        ListNode listNode2 = new ListNode(1);
+        ListNode listNode1 = new ListNode(2);
+        LinkedListUtils.printCommon("输入", listNode2);
+        LinkedListUtils.printCommon("输入", listNode1);
+        LinkedListUtils.printCommon("输出", test.mergeTwoLists(listNode2, listNode1));
+    }
+
+    @Test
+    void mergeTwoLists5() {
+        ListNode listNode = new ListNode(-9);
+        ListNode listNode2 = new ListNode(3);
+        ListNode listNode4 = new ListNode(5);
+        listNode2.next = listNode4;
+        listNode.next = listNode2;
+
+        ListNode listNode1 = new ListNode(7);
+        ListNode listNode3 = new ListNode(9);
+        listNode1.next = listNode3;
+
+        LinkedListUtils.printCommon("输入", listNode);
+        LinkedListUtils.printCommon("输入", listNode1);
+        LinkedListUtils.printCommon("输出", test.mergeTwoLists(listNode, listNode1));
+    }
+
 }

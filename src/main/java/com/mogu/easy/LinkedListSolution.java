@@ -121,31 +121,50 @@ public class LinkedListSolution {
         if (l1 == null && l2 == null) {
             return null;
         }
+        ListNode newCode = new ListNode(0);
 
-        ListNode i = l1;
-        ListNode j = l2;
-        boolean flag = true;
-        while (j != null && i != null) {
-            if (i.getVal() <= j.getVal()) {
-                ListNode iNext = i.getNext();
-                i.next = new ListNode(j.getVal(), iNext);
-                j = j.getNext();
-                i = iNext;
-            } else {
-                flag = false;
-                ListNode jNext = j.getNext();
-                if (jNext.val > i.getVal()) {
-                    j.next = i;
-                    j = jNext;
-                    i = i.getNext();
+        while (l2 != null && l1 != null) {
+            ListNode temp = newCode;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            //            System.out.println("l1=" + l1.getVal() + ",l2=" + l2.getVal());
+            //            LinkedListUtils.printCommon("tempCode:", temp);
+            if (l1.val == l2.val) {
+                if (l1.next == null) {
+                    l1.next = l2;
+                    temp.next = l1;
+                    break;
+                } else if (l2.next == null) {
+                    l2.next = l1;
+                    temp.next = l2;
+                    break;
                 } else {
-                    j = j.next;
-                    continue;
+                    temp.next = new ListNode(l1.val);
+                    temp.next.next = new ListNode(l2.val);
+                    l1 = l1.next;
+                    l2 = l2.next;
                 }
+            } else if (l1.val > l2.val) {
+                if (l2.next == null) {
+                    l2.next = l1;
+                    temp.next = l2;
+                    break;
+                } else {
+                    temp.next = new ListNode(l2.val);
+                }
+                l2 = l2.next;
+            } else if (l1.val < l2.val) {
+                if (l1.next == null) {
+                    l1.next = l2;
+                    temp.next = l1;
+                    break;
+                } else {
+                    temp.next = new ListNode(l1.val);
+                }
+                l1 = l1.next;
             }
         }
-        LinkedListUtils.printCommon("过程l1", l1);
-        LinkedListUtils.printCommon("过程l2", l2);
-        return flag ? l1 : l2;
+        return newCode.next;
     }
 }
