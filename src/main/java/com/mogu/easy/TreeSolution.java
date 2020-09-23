@@ -57,4 +57,34 @@ public class TreeSolution {
         }
         return flag;
     }
+
+    /**
+     * 对称二叉树
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xn7ihv/
+     *
+     * @param root
+     * @return
+     */
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null || (root.left == null && root.right == null)) {
+            return true;
+        }
+        boolean a = true;
+        a = a && isSymmetric(root.left, root.right);
+        return a;
+    }
+
+    private boolean isSymmetric(TreeNode left, TreeNode right) {
+        if (left == right && left == null) {
+            return true;
+        }
+        if (left == null || right == null) {
+            return false;
+        }
+        if (left.val != right.val) {
+            return false;
+        }
+        return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
+    }
+
 }
