@@ -106,6 +106,7 @@ public class LinkedListSolution {
 
     /**
      * 合并两个有序链表
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnnbp2/
      *
      * @param l1
      * @param l2
@@ -166,5 +167,17 @@ public class LinkedListSolution {
             }
         }
         return newCode.next;
+    }
+
+    /**
+     * 合并两个有序链表
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnnbp2/
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+        return null;
     }
 }
