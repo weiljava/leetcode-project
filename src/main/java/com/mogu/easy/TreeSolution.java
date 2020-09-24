@@ -1,7 +1,9 @@
 package com.mogu.easy;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -85,6 +87,39 @@ public class TreeSolution {
             return false;
         }
         return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
+    }
+
+    /**
+     * 二叉树的层序遍历
+     * https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnldjj/
+     * 借助队列的属性，采用广度优先遍历算法为核心
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> lists = new ArrayList<>();
+        if (root == null) {
+            return lists;
+        }
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            List<Integer> subList = new ArrayList<>();
+            int n = queue.size();
+            for (int i = 0; i < n; i++) {
+                TreeNode tree = queue.poll();
+                subList.add(tree.val);
+                if (tree.left != null) {
+                    queue.offer(tree.left);
+                }
+                if (tree.right != null) {
+                    queue.offer(tree.right);
+                }
+            }
+            lists.add(subList);
+        }
+        return lists;
     }
 
 }
